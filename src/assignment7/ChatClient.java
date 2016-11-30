@@ -74,8 +74,8 @@ public class ChatClient {
 		mainPanel.add(outgoing);
 		mainPanel.add(sendButton);
 		mainPanel.add(leave);
-		leave.setLayout(new FlowLayout(FlowLayout.RIGHT));
-		leave.setBackground(Color.BLUE);
+		//leave.setLayout(new FlowLayout(FlowLayout.RIGHT));
+		//leave.setBackground(Color.BLUE);
 		frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
 		frame.setSize(650, 400);
 		frame.setVisible(true);	
@@ -91,7 +91,9 @@ public class ChatClient {
 		writer = new PrintWriter(sock.getOutputStream());
 		System.out.println("networking established");
 		Thread readerThread = new Thread(new IncomingReader());
+		Thread readerThread2 = new Thread(new IncomingReader());
 		readerThread.start();
+		readerThread2.start();
 	}
 
 	class SendButtonListener implements ActionListener {
